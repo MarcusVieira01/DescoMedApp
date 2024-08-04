@@ -1,0 +1,19 @@
+{
+  "name": "medapp",
+  "version": "1.0.0",
+  "description": "Desenvolvimento de aplicação WEB para as aulas de Programação II via NODEJS, EXPRESS e MONGOBD para uma clínica médica fictícia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcusVieira01/DescoMedApp.git"
+  },
+  "author": "2MV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcusVieira01/DescoMedApp/issues"
+  },
+  "homepage": "https://github.com/MarcusVieira01/DescoMedApp#readme"
+}
