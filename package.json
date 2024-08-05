@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MarcusVieira01/DescoMedApp#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "medapp": "file:"
+    "medapp": "file:",
+    "mongoose": "^8.5.2"
   }
 }
