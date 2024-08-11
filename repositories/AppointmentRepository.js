@@ -23,9 +23,9 @@ const saveAppointment = async({date, doctorId, pacientId}) => {
     }
 }
 //Declaração de método assíncrono para atualização (UPDATE) de um Appointment, e senão houver registro, será criado automaticamente
-const updateAppointment = async(id, {date, doctorId, paientId}) => {
+const updateAppointment = async(id, {date, doctorId, patientId}) => {
     try {
-        return await Appointment.findByIdandUpdate(id, {date, doctorId, patientId}, {new: true})
+        return await Appointment.findByIdAndUpdate(id, {date, doctorId, patientId}, {new: true})
     } catch (error) {
         throw new Error(error)
     }
@@ -33,7 +33,7 @@ const updateAppointment = async(id, {date, doctorId, paientId}) => {
 //
 const deleteAppointment = async(id) => {
     try {
-        return await Appointment.findByIdandUpdate(id);
+        return await Appointment.findByIdAndUpdate(id);
     } catch (error) {
         throw new Error(erro)
     }

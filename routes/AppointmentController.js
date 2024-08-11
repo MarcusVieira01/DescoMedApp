@@ -37,11 +37,11 @@ router.post('/postAppointment', async(req,res) => {
 });
 //Criação de rota para acesso ao método updateAppointment
 router.put('/putAppointments/:id', async(req,res) => {
-    const {id} = res.params;
-    const {date, doctorId, pacientId} = req.body;
+    const {id} = req.params;
+    const {date, doctorId, patientId} = req.body;
     try {
         const appointment = await appointmentService.updateAppointment(id, {date, doctorId, patientId});
-        req.send(appointment)
+        res.send(appointment)
     } catch (error) {
         console.log(error);
         res.status(500).send(error);
