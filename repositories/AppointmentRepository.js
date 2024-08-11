@@ -1,14 +1,14 @@
-import appointment from "../models/Appointment.js"
+import Appointment from "../models/Appointment.js"
 
-//Declaração de métodos assíncronos para leitura (READ) de dados da entidade Appointment
+//Declaração de métodos assíncronos para leitura (READ) de dados da entidade Appointments
 //Get All Registers
 const getAllAppointments = async() => {
-    return await appointment.find();
+    return await Appointment.find();
 }
 //Get a Register by Id
 const getAppointment = async(id) => {
     try {
-        return await appointment.findById(id);
+        return await Appointment.findById(id);
     } catch (error) {
         throw new Error(error);
     }
@@ -16,16 +16,16 @@ const getAppointment = async(id) => {
 //Declaração de método assíncrono para gravação (CREATE) de um Appointment criando umm novo Prescription por relacionamento
 const saveAppointment = async({date, doctorId, pacientId}) => {
     try {
-        const prescription = new appointment({date, doctorId, pacientId});
+        const prescription = new Appointment({date, doctorId, patientId});
         return await prescription.save();
     } catch (error) {
         throw new Error(error)
     }
 }
 //Declaração de método assíncrono para atualização (UPDATE) de um Appointment, e senão houver registro, será criado automaticamente
-const updateAppointment = async(id, {date, doctorId, pacientId}) => {
+const updateAppointment = async(id, {date, doctorId, paientId}) => {
     try {
-        return await appointment.findByIdandUpdate(id, {date, doctorId, pacientId}, {new: true})
+        return await Appointment.findByIdandUpdate(id, {date, doctorId, patientId}, {new: true})
     } catch (error) {
         throw new Error(error)
     }
@@ -33,7 +33,7 @@ const updateAppointment = async(id, {date, doctorId, pacientId}) => {
 //
 const deleteAppointment = async(id) => {
     try {
-        return await appointment.findByIdandUpdate(id);
+        return await Appointment.findByIdandUpdate(id);
     } catch (error) {
         throw new Error(erro)
     }

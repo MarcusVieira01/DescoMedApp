@@ -5,9 +5,8 @@ const Schema = mongoose.Schema;
 //Declaração de schema com os campos necessários para definição da entidade
 const appointmentSchema = new Schema({
     date:{
-        type: Date,
-        required: [true, 'Appointment Data is required'],
-        unique: [true]
+        type: Date, //Data americana
+        required: [true, 'Appointment Data is required']
     },
     doctorId:{
         type: String,
@@ -20,7 +19,8 @@ const appointmentSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    }});
+    }
+});
 //Criação da entidade com nome Appontment usando o appointmentSchema
 const appointment = mongoose.model("Appointment", appointmentSchema);
 //Exportação do valor da variável appointment

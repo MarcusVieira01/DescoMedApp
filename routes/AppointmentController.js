@@ -4,8 +4,7 @@ import appointmentService from "../services/AppointmentService.js";
 let router = express.Router();
 
 //Criação de rota para acesso ao método getAllAppointments
-router.get(
-    '/appointments', async(req,res) => {
+router.get('/appointments', async(req, res) => {
         try {
             const appointments = await appointmentService.getAllAppointments();
             res.send(appointments);
@@ -26,10 +25,10 @@ router.get('/getAppointment/:id', async(req,res) => {
     }
 });
 //Criação de rota para acesso ao método saveAppointment
-router.post('./postAppointment', async(req,res) => {
-    const {date, doctorId, pacientId} = req.body;
+router.post('/postAppointment', async(req,res) => {
+    const {date, doctorId, patientId} = req.body;
     try {
-        const appointment = await appointmentService.saveAppointment({date, doctorId, pacientId});
+        const appointment = await appointmentService.saveAppointment({date, doctorId, patientId});
         res.send(appointment)
     } catch (error) {
         console.log(error);
@@ -41,7 +40,7 @@ router.put('/putAppointments/:id', async(req,res) => {
     const {id} = res.params;
     const {date, doctorId, pacientId} = req.body;
     try {
-        const appointment = await appointmentService.updateAppointment(id, {date, doctorId, pacientId});
+        const appointment = await appointmentService.updateAppointment(id, {date, doctorId, patientId});
         req.send(appointment)
     } catch (error) {
         console.log(error);
