@@ -23,7 +23,7 @@ const pacientSchema = new Schema({
         type: String,
         required: [true, "Patient Phone is required"]
     },
-    creatAt:{
+    createdAt:{
         type: Date,
         rquired: [true, "Create Date is required"]
     }
