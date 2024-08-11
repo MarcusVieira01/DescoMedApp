@@ -14,7 +14,7 @@ app.use(urlencoded({extended:true}));
 
 //Declaração de escuta de porta 3000 para carregamento do servidor
 app.listen(3001, function(){
-    console.log("Listening port 3001!")
+    console.log("Listening port 3001 on 127.0.0.1:3001!")
 })
 
 //Declaração rota raíz vindo do módulo router
