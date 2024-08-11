@@ -25,7 +25,7 @@ const pacientSchema = new Schema({
     },
     createdAt:{
         type: Date,
-        rquired: [true, "Create Date is required"]
+        default: Date.now
     }
 }) 
 //Criação da entidade com nome Pacient usando o pacientSchema

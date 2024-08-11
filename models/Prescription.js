@@ -29,7 +29,7 @@ const prescriptionSchema = new Schema({
     },
     createdAt:{
         type: Date,
-        required: [true, "Create Date is required"]
+        default: Date.now
     }
 })
 //Criação da entidade com nome Prescription usando prescriptionSchema
