@@ -58,5 +58,20 @@ router.delete('/deleteAppointment/:id', async(req, res) =>{
         res.status(500).send(error);
     }
 });
+//Criação de rota para reagendamento de um appointment usando lógica única, não estipulada em Service ou Repository
+router.put('/reschedule/:id', async(req, res) => {
+    const {id} = req.params;
+    const {date} = req.body;
+    try {
+        let appointment = await appointmentService.getAppointment(id);
+        appointment.date = date;
+        appointment = await appointmentService.updateAppointment(id, {date});
+        res.send(appointment);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
+
 //Exportação do retorno do método router()
 export default router;
