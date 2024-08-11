@@ -1,5 +1,5 @@
-import {express} from "express";
-import AppointmentService from "../services/AppointmentService";
+import express from "express";
+import appointmentService from "../services/AppointmentService.js";
 
 let router = express.Router();
 
@@ -7,7 +7,7 @@ let router = express.Router();
 router.get(
     '/appointments', async(req,res) => {
         try {
-            const appointments = await AppointmentService.getAllAppointments();
+            const appointments = await appointmentService.getAllAppointments();
             res.send(appointments);
         } catch (error) {
             console.log(error);
@@ -18,7 +18,7 @@ router.get(
 router.get('/getAppointment/:id', async(req,res) => {
     const {id} = req.params;
     try {
-        const appointment = await AppointmentService.getAppointment(id);
+        const appointment = await appointmentService.getAppointment(id);
         res.send(appointment)
     } catch (error) {
         console.log(error);
@@ -29,7 +29,7 @@ router.get('/getAppointment/:id', async(req,res) => {
 router.post('./postAppointment', async(req,res) => {
     const {date, doctorId, pacientId} = req.body;
     try {
-        const appointment = await AppointmentService.saveAppointment({date, doctorId, pacientId});
+        const appointment = await appointmentService.saveAppointment({date, doctorId, pacientId});
         res.send(appointment)
     } catch (error) {
         console.log(error);
@@ -41,7 +41,7 @@ router.put('/putAppointments/:id', async(req,res) => {
     const {id} = res.params;
     const {date, doctorId, pacientId} = req.body;
     try {
-        const appointment = await AppointmentService.updateAppointment(id, {date, doctorId, pacientId});
+        const appointment = await appointmentService.updateAppointment(id, {date, doctorId, pacientId});
         req.send(appointment)
     } catch (error) {
         console.log(error);
@@ -52,7 +52,7 @@ router.put('/putAppointments/:id', async(req,res) => {
 router.delete('/deleteAppointment/:id', async(req, res) =>{
     const {id} = req.params;
     try {
-        const appointment = await AppointmentService.deleteAppointment(id);
+        const appointment = await appointmentService.deleteAppointment(id);
         res.send(appointment)
     } catch (error) {
         console.log(error);
@@ -60,4 +60,4 @@ router.delete('/deleteAppointment/:id', async(req, res) =>{
     }
 });
 //Exportação do retorno do método router()
-export default router();
+export default router;

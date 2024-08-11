@@ -1,4 +1,4 @@
-import {express} from "express";
+import express from "express";
 import appointmentController from "./AppointmentController.js"
 import doctorController from "./DoctorController.js"
 import pacientController from "./PacientController.js"
@@ -10,8 +10,7 @@ let router = express.Router();
 router.get(
     "/", function(req,res){
         console.log("Chegou no /");
-        res.status(200).json({
-            message:"Conectou normalmente!"});
+        res.status(200).json({message:"Conectou normalmente!"});
     });
 //Mapeamento de rotas usadas
 router.use("/", appointmentController);
