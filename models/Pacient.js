@@ -28,7 +28,7 @@ const pacientSchema = new Schema({
         rquired: [true, "Create Date is required"]
     }
 }) 
-
+//Criação da entidade com nome Pacient usando o pacientSchema
 const pacient = mongoose.model("Pacient", pacientSchema);
-
+//Exportação do valor da variável pacient
 export default pacient;
