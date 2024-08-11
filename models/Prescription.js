@@ -4,10 +4,6 @@ import {mongo, mongoose} from "mongoose"
 const Schema = mongoose.Schema;
 //Declaração de schema com os campos necessários para definição da entidade
 const prescriptionSchema = new Schema({
-    prescriptiolnId:{
-        type: String,
-        required: [true, "Prescription ID is required"]
-    },
     date:{
         type: Date,
         required: [true, "Prescription Date is required"]

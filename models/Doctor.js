@@ -4,11 +4,6 @@ import { Mongoose, mongoose } from "mongoose";
 const Schema = mongoose.Schema;
 //Declaração de schema com os campos necessários para definição da entidade
 const doctorSchema = new Schema({
-    doctorId:{
-        type: String,
-        required: [true, "DoctorId is required"],
-        unique: [true]
-    },
     name:{
         type: String,
         required: [true, "Doctor Name is required"]
