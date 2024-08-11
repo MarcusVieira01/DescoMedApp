@@ -1,4 +1,8 @@
 import {express} from "express";
+import appointmentController from "./AppointmentController.js"
+import doctorCOntroller from "./DoctorController.js"
+import pacientController from "./PacientController.js"
+import prescriptionController from "./PrescriptionController.js"
 
 //Declaração de construtor para criar o roteamento automático pelo express
 let router = express.Router();
