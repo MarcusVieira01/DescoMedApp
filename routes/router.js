@@ -1,6 +1,6 @@
 import {express} from "express";
 import appointmentController from "./AppointmentController.js"
-import doctorCOntroller from "./DoctorController.js"
+import doctorController from "./DoctorController.js"
 import pacientController from "./PacientController.js"
 import prescriptionController from "./PrescriptionController.js"
 
@@ -13,5 +13,11 @@ router.get(
         res.status(200).json({
             message:"Conectou normalmente!"});
     });
+//Mapeamento de rotas usadas
+router.use("/", appointmentController);
+router.use("/", doctorController);
+router.use("/", pacientController);
+router.use("/", prescriptionController);
+
 //Externalização do valor da variável router
 export default router;
