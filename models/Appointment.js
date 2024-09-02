@@ -1,4 +1,6 @@
-import { Mongoose, mongoose } from "mongoose";
+import { mongoose } from "mongoose";
+import Doctor from "./Doctor";
+import Pacient from "./Pacient"
 
 //Construção de schema MongoDB
 const Schema = mongoose.Schema;
@@ -10,11 +12,27 @@ const appointmentSchema = new Schema({
     },
     doctorId:{
         type: String,
-        required: [true, "DoctorId is required"]
+        required: [true, "DoctorId is required"],
+        validate: {
+            validator: function (v){
+                //Convertendo uma string em um objeto ID para ser encontra do BD
+                const id = new mongoose.Types.ObjectId(v);
+                return Doctor.exists({_id:id});
+            },
+            message: props => `DoctorID${props.value} This is not a valid doctor ID!`
+        }
     },
     patientId:{
         type: String,
-        required: [true, "PacientID is required"]
+        required: [true, "PacientID is required"],
+        validate: {
+            validator: function (v){
+                //Convertendo uma string em um objeto ID para ser encontra do BD
+                const id = new mongoose.Types.ObjectId(v);
+                return Pacient.exists({_id:id});
+            },
+            message: props => `PacientID${props.value} This is not a valid pacient ID!`
+        }
     },
     createdAt: {
         type: Date,
