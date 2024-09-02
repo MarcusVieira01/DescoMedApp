@@ -18,7 +18,14 @@ const pacientSchema = new Schema({
     },
     phone:{
         type: String,
-        required: [true, "Patient Phone is required"]
+        required: [true, "Doctor Phone is required"],
+        //Declaração de validador usando REGEX para definir como um número telefônico deve parecer
+        validate: {
+            validator: function(v){
+                return /\d[2] 9\d{4}-\d{4}/.test(v)
+            },
+            message: props => `${props.value} This is not a valid phone value. Please use the following format XX 9XXXX-XXXX`
+        }
     },
     createdAt:{
         type: Date,
