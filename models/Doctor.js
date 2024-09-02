@@ -33,7 +33,13 @@ const doctorSchema = new Schema({
     },
     phone:{
         type: String,
-        required: [true, "Doctor Phone is required"]
+        required: [true, "Doctor Phone is required"],
+        //Declaração de validador usando REGEX para definir como um número telefônico deve parecer
+        validate: {
+            validator: function(v){
+                return /\d[2] 9\d{4}-\d{4}/.test(v)
+            }
+        }
     },
     createdAt: {
         type: Date,
